@@ -1,0 +1,39 @@
+<aside class="sidebar" [class.collapsed]="collapsed()">
+  <div class="sidebar-header">
+    @if (!collapsed()) {
+    <div class="brand">
+      <span class="brand-icon">✦</span>
+      <span class="brand-name">Ask Buddy</span>
+    </div>
+    }
+    <button
+      type="button"
+      class="icon-btn"
+      (click)="toggleCollapse.emit()"
+      [attr.aria-label]="collapsed() ? 'Expand sidebar' : 'Collapse sidebar'"
+    >
+      {{ collapsed() ? '☰' : '←' }}
+    </button>
+  </div>
+
+  <button type="button" class="new-chat-btn" (click)="onNewChat()">
+    <span class="new-chat-icon">+</span>
+    @if (!collapsed()) {
+    <span>New chat</span>
+    }
+  </button>
+
+  @if (!collapsed()) {
+  <nav class="chat-list" aria-label="Chat history">
+    @for (chat of chats(); track chat.id) {
+    <button type="button" class="chat-item" [class.active]="chat.id === activeChatId()" (click)="onSelectChat(chat.id)">
+      <span class="chat-item-title">{{ chat.title }}</span>
+      <span class="chat-item-meta">{{ chat.updatedAt | date: 'MMM d' }}</span>
+      <button type="button" class="delete-btn" aria-label="Delete chat" (click)="onDeleteChat($event, chat.id)">✕</button>
+    </button>
+    } @empty {
+    <p class="empty-state">No conversations yet</p>
+    }
+  </nav>
+  }
+</aside>

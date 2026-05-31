@@ -1,0 +1,62 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --color-navy: #003049;
+  --color-navy-light: #004e75;
+  --color-red: #d62828;
+  --color-orange: #f77f00;
+  --color-gold: #fcbf49;
+  --color-cream: #eae2b7;
+  --color-cream-muted: rgba(234, 226, 183, 0.72);
+
+  --color-bg: #f8f5ec;
+  --color-surface: #ffffff;
+  --color-user-bubble: rgba(252, 191, 73, 0.18);
+  --color-border: rgba(0, 48, 73, 0.1);
+  --color-text: #003049;
+  --color-text-muted: rgba(0, 48, 73, 0.55);
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+app-root {
+  display: block;
+  height: 100%;
+}
+
+body {
+  font-family:
+    'Segoe UI',
+    system-ui,
+    -apple-system,
+    sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+textarea {
+  font-family: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 48, 73, 0.15);
+  border-radius: 3px;
+}
